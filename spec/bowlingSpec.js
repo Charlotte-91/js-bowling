@@ -17,5 +17,8 @@ describe("Bowling", function() {
     expect(bowling.frame(6,4)).toBe(10);
     expect(bowling.strikeOrSpare).toBe(1);
   });
-  
+  it("Should return the total score for that frame", function() {
+    this.strikeOrSpare = 3
+    expect(extraScore(10,0)).toBe(20);
+  });
 });

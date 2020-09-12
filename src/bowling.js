@@ -16,4 +16,16 @@ class Bowling {
       return (score1 + score2)
     }
   }
+  extraScore(score1, score2) {
+    if (this.strikeOrSpare => 2) {
+      if (score2 == 0){
+        total += score1
+        this.strikeOrSpare -= 1
+      }
+    }
+
+  }
+
+
+
 }
