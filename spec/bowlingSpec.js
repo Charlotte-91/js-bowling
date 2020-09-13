@@ -5,20 +5,20 @@ describe("Bowling", function() {
     bowling = new Bowling();
   });
 
-  it("Should be able to return a total score", function() {
-    expect(bowling.frame(3,4)).toBe(7);
+  it("Should return total score when there is no strike or spare", function() {
+    expect(bowling.firstTurn(4,5)).toBe(9);
   });
 
-  it("Should be return 10 and a Strike or Spare of 2", function() {
-    expect(bowling.frame(10,0)).toBe(10);
-    expect(bowling.strikeOrSpare).toBe(2);
+  it("Returns a strike score with bonus added ", function() {
+    expect(bowling.firstTurn(10,0)).toBe(10);
+    expect(bowling.nextTurn(2,3)).toBe(20);
   });
-  it("Should be return 10 and a Strike or Spare of 1", function() {
-    expect(bowling.frame(6,4)).toBe(10);
-    expect(bowling.strikeOrSpare).toBe(1);
+  it("Returns a spare score with bonus added", function() {
+    expect(bowling.firstTurn(6,4)).toBe(10);
+    expect(bowling.nextTurn(6,3)).toBe(25);
   });
-  it("Should return the total score for that frame", function() {
-    this.strikeOrSpare = 3
-    expect(extraScore(10,0)).toBe(20);
+  it("Returns a score for multiple strikes in a row", function() {
+    expect(bowling.firstTurn(10,0)).toBe(10);
+    expect(bowling.nextTurn(10,0)).toBe(30);
   });
 });
